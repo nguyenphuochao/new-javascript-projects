@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="weather">
+            <div class="weather-header">
+                <input placeholder="Enter city name" type="text" id="searchCity" />
+                <img src="assets/search.png" alt="search-icon" id="searchBtn" />
+                <span class="icon-trash" id="iconTrash">✖️</span>
+            </div>
+            <div class="weather-body">
+                <img class="weather-icon" id="weatherIcon" src="assets/clear.png" />
+                <h1 class="weather-temp" id="weatherTemp">7°C</h1>
+                <h2 class="weather-city" id="weatherCity">New York</h2>
+                <div class="weather-info">
+                    <div class="weather-left">
+                        <div class="icon">
+                            <img src="assets/humidity.png" />
+                        </div>
+                        <div class="info">
+                            <div class="number-unit" id="humidity">48%</div>
+                            <div class="status-name">Humidity</div>
+                        </div>
+                    </div>
+                    <div class="weather-right">
+                        <div class="icon">
+                            <img src="assets/clouds.png" />
+                        </div>
+                        <div class="info">
+                            <div class="number-unit" id="windSpeed">10.29 km/h</div>
+                            <div class="status-name">Wind speed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="weather-notfound">404 Not Found</div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
