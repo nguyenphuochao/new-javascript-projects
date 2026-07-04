@@ -32,6 +32,9 @@ const weatherStatus = {
 // handle get weather API use async/await
 async function getWeather(cityName) {
     try {
+
+        // await sleep(10000);
+
         const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?&appid=${appId}&q=${cityName}&units=${units}`);
 
         if (!res.ok) {
@@ -58,7 +61,7 @@ async function getWeather(cityName) {
     }
 }
 
-// Validate input search weather
+// validate input search weather
 function validateEmptyInput(location) {
     if (location.trim() === "") {
         getWeather(cityName);
@@ -68,7 +71,7 @@ function validateEmptyInput(location) {
     return true;
 }
 
-// Handle click search button icon
+// handle click search button icon
 searchBtn.onclick = function () {
     if (!validateEmptyInput(searchCity.value)) {
         return;
@@ -77,7 +80,7 @@ searchBtn.onclick = function () {
     getWeather(searchCity.value);
 }
 
-// Handle press `Enter` search input
+// handle press `Enter` search input
 searchCity.onkeypress = function (e) {
     if (e.key !== "Enter") {
         return;
@@ -90,7 +93,7 @@ searchCity.onkeypress = function (e) {
     getWeather(searchCity.value);
 }
 
-// Check show/hide icon `X` input
+// check show/hide icon `X` input
 searchCity.onkeyup = function () {
     if (searchCity.value.length > 0) {
         iconTrash.style.display = "block";
@@ -99,11 +102,16 @@ searchCity.onkeyup = function () {
     }
 }
 
-// Handle clear click icon `X`
+// handle click icon `X` in input clear input value
 iconTrash.onclick = function () {
     searchCity.value = "";
     searchCity.onkeyup();
 }
 
-// Render UI
+// render UI
 getWeather(cityName);
+
+// sleep await server slow
+function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
